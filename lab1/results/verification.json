@@ -1,0 +1,6 @@
+{
+  "configuration_metrics_identical": true,
+  "prediction_bytes_identical": true,
+  "prediction_rows": 2457,
+  "reproduction": "Complete second process run with separate output directory"
+}

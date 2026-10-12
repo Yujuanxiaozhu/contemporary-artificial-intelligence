@@ -1,0 +1,36 @@
+{
+  "baseline": {
+    "stage": "model_parameter",
+    "seed": 42,
+    "model": "SVM",
+    "parameter": 1.0,
+    "feature": "baseline",
+    "accuracy": 0.9355495251017639,
+    "macro_f1": 0.9357642025463508,
+    "train_accuracy": 0.999491007804547,
+    "fit_seconds": 0.40520130599998083,
+    "predict_seconds": 0.0019356710000693056,
+    "feature_seconds": 1.5163343709999708,
+    "n_features": 20000,
+    "train_nnz": 806238,
+    "warnings": []
+  },
+  "selected": {
+    "stage": "feature_ablation",
+    "seed": 42,
+    "model": "SVM",
+    "parameter": 1.0,
+    "feature": "sublinear",
+    "accuracy": 0.9416553595658074,
+    "macro_f1": 0.9417150584545235,
+    "train_accuracy": 0.999660671869698,
+    "fit_seconds": 0.39264289300001565,
+    "predict_seconds": 0.002164130999972258,
+    "feature_seconds": 1.4373341159999882,
+    "n_features": 20000,
+    "train_nnz": 806238,
+    "warnings": []
+  },
+  "train_rows": 5894,
+  "validation_rows": 1474
+}
