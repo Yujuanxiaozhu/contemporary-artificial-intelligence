@@ -1,0 +1,24 @@
+{
+  "content_tables_checked": 12,
+  "content_check_before_style": true,
+  "style_changes": [
+    {
+      "original": "值得注意的是，",
+      "replacement": "",
+      "count": 1
+    },
+    {
+      "original": "进一步地，",
+      "replacement": "",
+      "count": 1
+    },
+    {
+      "original": "综上所述，",
+      "replacement": "",
+      "count": 1
+    }
+  ],
+  "chinese_character_count": 5126,
+  "non_whitespace_character_count": 9503,
+  "pdf_generated": true
+}

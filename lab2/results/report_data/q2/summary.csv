@@ -1,0 +1,7 @@
+group,heuristic,instance_count,mean_solution_cost,median_solution_cost,median_expanded_nodes,min_expanded_nodes,max_expanded_nodes,expanded_q1,expanded_q3,median_generated_nodes,median_elapsed_time
+official,zero,1,7,7,14,14,14,14,14,24,3.479999986666371e-05
+official,admissible,1,7,7,10,10,10,10,10,19,3.259999994043028e-05
+20x20_p20,zero,10,134,132.0,311.0,292,328,298.5,317.0,313.5,0.0006399999999757711
+20x20_p20,admissible,10,134,132.0,299.0,250,322,291.5,311.0,316.5,0.0007264000000759552
+40x40_p20,zero,10,281.8,284.5,1256.0,1236,1307,1244.25,1275.75,1260.5,0.002818100000013146
+40x40_p20,admissible,10,281.8,284.5,1251.5,1198,1295,1238.25,1274.25,1311.0,0.0032494000001861423

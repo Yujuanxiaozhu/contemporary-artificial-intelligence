@@ -1,0 +1,17 @@
+{
+  "python_version": "3.12.14",
+  "landmark_order": [
+    "A",
+    "B",
+    "T1",
+    "T2",
+    "T3",
+    "T4"
+  ],
+  "distance_precomputation_time": 0.0009658999999828666,
+  "independently_verified_pairs": 36,
+  "astar_calls_for_precomputation": 36,
+  "timing_repeats": 1000,
+  "game_timing_includes_practical_sort": true,
+  "game_timing_includes_astar": false
+}

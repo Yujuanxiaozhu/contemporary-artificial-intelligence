@@ -1,0 +1,29 @@
+{
+  "grid": [
+    [
+      3,
+      3,
+      "E"
+    ]
+  ],
+  "start": [
+    0,
+    0
+  ],
+  "node": [
+    0,
+    1
+  ],
+  "goal": [
+    0,
+    2
+  ],
+  "min_weight": 3,
+  "plain_manhattan_bound": 3,
+  "true_remaining_cost": 0,
+  "safe_bound": 0,
+  "algorithm_results": {
+    "zero": 0,
+    "admissible": 0
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "status": "PASS",
+  "checks": [
+    "12 report tables exactly match source-backed construction",
+    "naturalness and forbidden-content checks passed",
+    "official results, corrected heuristic and first-use cache comparison present",
+    "4 self-contained SVGs parse as XML; 3 numeric plots match source values",
+    "HTML matches Markdown; 12 tables and 4 images; all resources local and present",
+    "data_reference index exists and referenced paths resolve",
+    "62 tests passed in this audit execution",
+    "student information matches requested author; no class field or placeholder",
+    "Markdown, HTML and available PDF are ready for course use"
+  ],
+  "report_chinese_characters": 5126,
+  "report_nonwhitespace_characters": 9503,
+  "svg_count": 4,
+  "html_generated": true,
+  "pdf_generated": true,
+  "tests_passed": 62,
+  "core_algorithms_modified": false
+}

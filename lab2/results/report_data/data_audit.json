@@ -1,0 +1,41 @@
+{
+  "status": "PASS",
+  "checks": [
+    {
+      "question": 1,
+      "input_count": 51,
+      "algorithm_rows": 102,
+      "raw_time_samples": 3162,
+      "rejected_maps": 10,
+      "status": "PASS"
+    },
+    {
+      "question": 2,
+      "input_count": 21,
+      "algorithm_rows": 42,
+      "raw_time_samples": 1302,
+      "rejected_maps": 5,
+      "status": "PASS"
+    },
+    {
+      "section": "q3/results.csv",
+      "algorithm_rows": 18,
+      "raw_time_samples": 18018,
+      "status": "PASS"
+    },
+    {
+      "section": "q4/results.csv",
+      "algorithm_rows": 8,
+      "raw_time_samples": 8008,
+      "status": "PASS"
+    },
+    {
+      "section": "q4/cache_comparison.csv",
+      "algorithm_rows": 3,
+      "raw_time_samples": 303,
+      "status": "PASS"
+    }
+  ],
+  "all_raw_time_samples": 31173,
+  "notes": "Includes search samples, Q3 ordering preparation and Q4 matrix preparation; excludes warmups."
+}

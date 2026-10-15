@@ -1,0 +1,8 @@
+{
+  "single_precomputation_time": 0.001420499999767344,
+  "median_precomputation_time": 0.0011828000001514738,
+  "repeats": 101,
+  "astar_calls": 36,
+  "astar_expanded": 329,
+  "astar_generated": 503
+}

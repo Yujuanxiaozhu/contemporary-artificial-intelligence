@@ -1,0 +1,13 @@
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+venv/
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+*.tmp
+*.log
+results/*_rerun/
+results/report_data_rerun/

@@ -1,0 +1,9 @@
+depth,algorithm,order,best_target,best_value,visited_nodes,evaluated_leaf_nodes,prune_events,pruned_children,median_elapsed_time,timing_repeats
+2,minimax,original,T2,-1,17,12,0,0,4.459999991013319e-05,1001
+2,alphabeta,original,T2,-1,13,8,2,4,3.670000023703324e-05,1001
+2,alphabeta,practical,T2,-1,11,6,3,6,3.689999994094251e-05,1001
+2,alphabeta,unfavorable,T2,-1,16,11,1,1,4.910000006930204e-05,1001
+4,minimax,original,T3,3,65,24,0,0,0.0001708999998299987,1001
+4,alphabeta,original,T3,3,47,16,5,6,0.00013589999980467837,1001
+4,alphabeta,practical,T3,3,37,12,6,8,0.00012719999995169928,1001
+4,alphabeta,unfavorable,T3,3,53,19,2,3,0.0001762000001690467,1001

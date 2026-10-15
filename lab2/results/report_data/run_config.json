@@ -1,0 +1,18 @@
+{
+  "python_version": "3.12.14",
+  "map_repeats": 31,
+  "search_repeats": 1001,
+  "cache_repeats": 101,
+  "map_instances_per_group": 10,
+  "q1_seed_base": 20261015,
+  "q2_seed_base": 20261115,
+  "q3_seeds": {
+    "b3_d4": 20261219,
+    "b3_d6": 20261221
+  },
+  "measurement": "single-run logical counts; two warmups; cyclic interleaving; median repeated internal elapsed_time",
+  "one_shot_cache_measurement": "external timer includes matrix build + game construction + one search",
+  "sampling": "IID obstacles except forced open endpoints; reject unreachable; no route carving",
+  "plots": false,
+  "matplotlib": "not installed; no dependency installation"
+}
