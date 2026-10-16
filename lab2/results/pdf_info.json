@@ -1,7 +1,18 @@
 {
   "file": "report/experiment2_report.pdf",
-  "pages": 12,
-  "bytes": 558861,
+  "pages": 5,
+  "bytes": 439498,
+  "sha256": "9c92d9e4d68590a94613f0fc8ae0a652ec75d1d8af77e190cd2c511caab9aab3",
   "all_pages_nonblank": true,
-  "student_information_verified": true
+  "student_information_verified": true,
+  "github_url": "https://github.com/Yujuanxiaozhu/contemporary-artificial-intelligence",
+  "github_url_visible_on_first_page": true,
+  "github_url_clickable": true,
+  "a4": true,
+  "visually_checked_pages": 5,
+  "full_report": {
+    "file": "report/experiment2_report_full.pdf",
+    "pages": 12,
+    "bytes": 558861
+  }
 }

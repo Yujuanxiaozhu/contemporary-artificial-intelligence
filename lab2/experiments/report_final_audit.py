@@ -7,6 +7,8 @@ from pathlib import Path
 import re
 import xml.etree.ElementTree as ET
 from experiments.build_report import ROOT,REPORT,NS,report_tables,chart_specifications,render_html
+from experiments.build_submission_report import validate_submission, render_html as submission_html
+import hashlib
 
 
 class ResourceParser(HTMLParser):
@@ -22,7 +24,7 @@ class ResourceParser(HTMLParser):
 
 def main():
     checks=[]
-    path=REPORT/'experiment2_report.md'
+    path=REPORT/'experiment2_report_full.md'
     text=path.read_text(encoding='utf-8')
     for name,value in report_tables().items():
         if value not in text:raise AssertionError('source table differs: '+name)
@@ -53,7 +55,7 @@ def main():
     checks.append('4 self-contained SVGs parse as XML; 3 numeric plots match source values')
     for relative in re.findall(r'!\[[^\]]*\]\(([^)]+)\)',text):
         if not (REPORT/relative).is_file():raise AssertionError('missing Markdown resource: '+relative)
-    html=(REPORT/'experiment2_report.html').read_text(encoding='utf-8')
+    html=(REPORT/'experiment2_report_full.html').read_text(encoding='utf-8')
     if html!=render_html(text):raise AssertionError('HTML is stale relative to Markdown')
     parser=ResourceParser();parser.feed(html)
     if parser.tables!=12 or parser.images!=4:raise AssertionError('HTML table/image count mismatch')
@@ -78,13 +80,30 @@ def main():
     if '姓名：刘毅' not in text or '学号：10245501453' not in text or '班级' in text or '________' in text:
         raise AssertionError('student information incomplete')
     checks.append('student information matches requested author; no class field or placeholder')
+    short=(REPORT/'experiment2_report.md').read_text(encoding='utf-8')
+    short_stats=validate_submission(short)
+    short_html=(REPORT/'experiment2_report.html').read_text(encoding='utf-8')
+    if short_html!=submission_html(short):raise AssertionError('submission HTML is stale')
+    short_parser=ResourceParser();short_parser.feed(short_html)
+    if short_parser.tables!=9 or short_parser.images!=1:raise AssertionError('submission resource count')
+    for relative in short_parser.resources:
+        if relative=='https://github.com/Yujuanxiaozhu/contemporary-artificial-intelligence':continue
+        if re.match(r'^[a-z]+:',relative,re.I) or not (REPORT/relative).is_file():
+            raise AssertionError('unexpected submission resource: '+relative)
+    checks.append('submission source-backed tables, required analysis and matching HTML checked')
     pdf=REPORT/'experiment2_report.pdf'
     if pdf.exists() and (pdf.stat().st_size<10000 or not pdf.read_bytes().startswith(b'%PDF-')):
         raise AssertionError('invalid PDF file')
+    info=json.loads((ROOT/'results/pdf_info.json').read_text(encoding='utf-8'))
+    if not (1<=info['pages']<=5) or info['sha256']!=hashlib.sha256(pdf.read_bytes()).hexdigest():
+        raise AssertionError('submission PDF differs from validated page-count record')
+    checks.append('submission PDF matches the validated at-most-five-page PDF hash')
     review=json.loads((ROOT/'results/report_review.json').read_text(encoding='utf-8'))
     checks.append('Markdown, HTML and available PDF are ready for course use')
-    result=dict(status='PASS',checks=checks,report_chinese_characters=review['chinese_character_count'],
-                report_nonwhitespace_characters=review['non_whitespace_character_count'],svg_count=len(assets),
+    result=dict(status='PASS',checks=checks,report_chinese_characters=short_stats['chinese_characters'],
+                report_nonwhitespace_characters=short_stats['nonwhitespace_characters'],
+                full_report_chinese_characters=review['chinese_character_count'],svg_count=len(assets),
+                submission_tables=short_stats['tables'],submission_images=short_stats['images'],pdf_pages=info['pages'],
                 html_generated=True,pdf_generated=(REPORT/'experiment2_report.pdf').exists(),
                 tests_passed=62,core_algorithms_modified=False)
     (ROOT/'results/final_audit.json').write_text(json.dumps(result,ensure_ascii=False,indent=2),encoding='utf-8')

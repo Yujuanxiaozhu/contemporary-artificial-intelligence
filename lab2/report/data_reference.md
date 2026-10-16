@@ -1,5 +1,23 @@
 # 报告表图来源索引
 
+## 五页提交版
+
+正式文件为experiment2_report.md/html/pdf；完整12页版本保存为experiment2_report_full.md/html/pdf。两者使用同一批正式数据，不重新计时。
+
+| 短版项目 | 来源 |
+| --- | --- |
+| 表1 Q1规模与密度 | ../results/report_data/q1/summary.csv |
+| 表2 Q2加权图 | ../results/report_data/q2/summary.csv |
+| 表3 Q3官方、表4自设树、图1排序 | ../results/report_data/q3/results.csv |
+| 表5完整距离矩阵 | ../results/report_data/q4/distance_matrix.json |
+| 表6四首步 | ../results/report_data/q4/decision_branches.csv |
+| 表7访问总量、表8剪枝细节 | ../results/report_data/q4/results.csv |
+| 表9缓存 | ../results/report_data/q4/cache_comparison.csv |
+
+生成器为../experiments/build_submission_report.py，文字源为submission_text.md。表格从以上源文件提取，时间单位由秒换为ms。短版只引用q3_ordering.svg；其他三图仍供长版使用。
+
+## 完整长版
+
 本文件用于维护报告，不是正式报告正文。路径相对本文件所在report目录。
 报告所有性能数字采用现有results/report_data正式采集结果，未重新测量或替换。CSV时间字段单位为秒，报告乘1000并保留4位小数作为ms；组中位数的生成过程见run_config.json与各timings.csv。
 

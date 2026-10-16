@@ -1,4 +1,4 @@
-"""读取已有正式数据生成报告和标准库SVG，不运行新性能实验。"""
+"""读取已有正式数据生成完整长版和标准库SVG，不覆盖五页提交版。"""
 import csv
 from html import escape
 import json
@@ -234,12 +234,12 @@ def main():
         count=text.count(old)
         if count:
             text=text.replace(old,new);changes.append(dict(original=old,replacement=new,count=count))
-    (REPORT/'experiment2_report.md').write_text(text,encoding='utf-8')
-    (REPORT/'experiment2_report.html').write_text(render_html(text),encoding='utf-8')
+    (REPORT/'experiment2_report_full.md').write_text(text,encoding='utf-8')
+    (REPORT/'experiment2_report_full.html').write_text(render_html(text),encoding='utf-8')
     review=dict(content_tables_checked=len(t),content_check_before_style=content_pass,
                 style_changes=changes,chinese_character_count=len(re.findall(r'[\u4e00-\u9fff]',text)),
                 non_whitespace_character_count=len(re.sub(r'\s','',text)),
-                pdf_generated=(REPORT/'experiment2_report.pdf').exists())
+                pdf_generated=(REPORT/'experiment2_report_full.pdf').exists())
     (ROOT/'results/report_review.json').write_text(json.dumps(review,ensure_ascii=False,indent=2),encoding='utf-8')
     print(json.dumps(review,ensure_ascii=True,indent=2))
 

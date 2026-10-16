@@ -20,7 +20,7 @@ lab2/
 ├─ tests/         62个自动测试
 ├─ experiments/   样例、独立参考算法、可复现实验和报告工具
 ├─ results/       正式实验数据与分析素材
-└─ report/        完整Markdown、HTML、PDF和四张SVG
+└─ report/        五页提交报告、完整长版和四张SVG
 ```
 
 ## 环境
@@ -48,7 +48,7 @@ python -m unittest discover -s tests -v
 python -m experiments.report_final_audit
 ```
 
-报告检查核对源数据表、SVG XML、资源、作者信息及关键结果，并实际运行62个测试。结果写入results/final_audit.json。
+报告检查核对长版和五页版的源数据表、SVG XML、资源、作者信息及关键结果，并实际运行62个测试。PDF通过其内容哈希与已验证页数记录核对，结果写入results/final_audit.json。
 测试包含边界情况、独立BFS/Dijkstra/Bellman-Ford对照、固定种子随机树与博弈状态一致性检查。
 
 ## 复现实验数据
@@ -73,16 +73,24 @@ python -m experiments.report_audit
 
 - [Markdown主稿](report/experiment2_report.md)
 - [HTML浏览版](report/experiment2_report.html)
-- [PDF报告（12页）](report/experiment2_report.pdf)
+- [正式提交PDF（5页）](report/experiment2_report.pdf)
+- [完整长版Markdown](report/experiment2_report_full.md)、[HTML](report/experiment2_report_full.html)、[PDF（12页）](report/experiment2_report_full.pdf)
 - [四张SVG](report/assets/)
 - [表图来源索引](report/data_reference.md)
 - [正式数据摘要](results/report_data/summary.md)
 
-完整报告按实验二自身要求保留，没有套用其他实验的篇幅限制。
-重新生成Markdown、HTML和SVG：
+正式提交版按最新不超过5页的要求重组，第一页显示仓库完整URL，代码位于lab2/。完整长版保留详细讨论和四张图。
+从已有数据重新生成正式提交版Markdown和HTML：
+
+```bash
+python -m experiments.build_submission_report
+```
+
+短版文字源在report/submission_text.md，9张数据表由正式CSV/JSON生成。
+重新生成完整长版Markdown、HTML和四张SVG（不会覆盖提交版）：
 
 ```bash
 python -m experiments.build_report
 ```
 
-生成器使用已有正式结果，不进行新性能测量。PDF由本地浏览器打印HTML生成，重新编辑报告后需再次导出PDF。
+生成器使用已有正式结果，不进行新性能测量。PDF由已有本地浏览器离线打印对应HTML生成；重新编辑后须再次导出、读取实际页数并逐页检查，提交版必须不超过5页。课程ZIP只需该PDF，代码和数据继续保留在本仓库。
